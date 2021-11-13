@@ -5,6 +5,10 @@ const UserPanel = () => {
   return (
     <P.Panel>
       <PropertySlider name="offset x" />
+      <PropertySlider name="offset y" />
+      <PropertySlider name="spread" />
+      <PropertySlider name="blur" />
+      <PropertySlider name="opacity" />
     </P.Panel>
   );
 };
