@@ -1,15 +1,19 @@
-import { useState, useRef } from "react";
+import { useState, useRef, createContext } from "react";
 import DraggableItem from "../DraggableItem/DraggableItem";
 
 import * as P from "./parts";
 
+export const ValueContext = createContext();
+
 const PropertySlider = ({ name, min, max }) => {
   const sliderRef = useRef(null);
   const [position, setPosition] = useState(0);
+  const [value, setValue] = useState(min);
 
   const setChoosenPosition = (e) => {
-    const { left } = sliderRef.current.getBoundingClientRect();
+    const { left, right } = sliderRef.current.getBoundingClientRect();
     setPosition(e.clientX - left - 25);
+    // setValue(Math.floor(position / (right - left / max)));
   };
 
   return (
@@ -23,6 +27,8 @@ const PropertySlider = ({ name, min, max }) => {
             max={max}
             setPosition={setPosition}
             position={position}
+            setValue={setValue}
+            value={value}
           />
         </P.Slider>
       </P.Wrapper>
