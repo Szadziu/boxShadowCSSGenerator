@@ -11,37 +11,43 @@ const DraggableItem = ({
   value,
 }) => {
   const itemRef = useRef();
-  const [isDrag, setIsDrag] = useState(false);
+  // const [isDrag, setIsDrag] = useState(false);
 
-  const dragItem = (e) => {
-    startDrag();
-  };
+  // const dragItem = (e) => {
+  //   startDrag();
+  // };
 
   const moveItem = (e) => {
-    const { left, right } = slider.current.getBoundingClientRect();
-    const step = (right - left) / max;
+    const { width, left, right } = slider.current.getBoundingClientRect();
+    const step = width / max;
 
-    if (isDrag) {
-      setPosition(e.clientX - left - 12.5);
-      setValue(Math.floor(position / step + min));
-    }
+    console.log(`%c ${position}`, "color: red");
+    // if (isDrag) {
+    console.log(Math.floor(position / step + min));
+    setPosition(e.clientX - left - 12.5);
+    setValue(Math.floor(position / step + min));
+    // }
     if (e.clientX < left) setPosition(0);
     if (e.clientX > right) setPosition(right - left - 50);
   };
 
   const startDrag = () => {
-    setIsDrag(true);
+    // setIsDrag(true);
+    document.addEventListener("mousemove", moveItem);
+    document.addEventListener("mouseup", stopDrag);
   };
 
   const stopDrag = () => {
-    setIsDrag(false);
+    // setIsDrag(false);
+    document.removeEventListener("mousemove", moveItem);
+    document.removeEventListener("mouseup", stopDrag);
   };
   return (
     <P.Item
-      onMouseDown={dragItem}
-      onMouseLeave={stopDrag}
-      onMouseUp={stopDrag}
-      onMouseMove={moveItem}
+      onMouseDown={startDrag}
+      // onMouseLeave={stopDrag}
+      // onMouseUp={stopDrag}
+      // onMouseMove={moveItem}
       ref={itemRef}
       position={position}
     >

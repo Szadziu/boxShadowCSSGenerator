@@ -1,18 +1,18 @@
-import { useState, useRef, createContext } from "react";
+import { useState, useRef } from "react";
 import DraggableItem from "../DraggableItem/DraggableItem";
 
 import * as P from "./parts";
 
-export const ValueContext = createContext();
+//! extract to global variables if its used in any other place
+const DRAGGABLE_WIDTH = 50;
 
-const PropertySlider = ({ name, min, max }) => {
+const PropertySlider = ({ name, min, max, value, setValue }) => {
   const sliderRef = useRef(null);
   const [position, setPosition] = useState(0);
-  const [value, setValue] = useState(min);
 
   const setChoosenPosition = (e) => {
     const { left, right } = sliderRef.current.getBoundingClientRect();
-    setPosition(e.clientX - left - 25);
+    setPosition(e.clientX - left - DRAGGABLE_WIDTH / 2);
     // setValue(Math.floor(position / (right - left / max)));
   };
 

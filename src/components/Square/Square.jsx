@@ -3,9 +3,7 @@ import { useContext } from "react";
 import { ValueContext } from "../PropertySlider/PropertySlider";
 
 const Square = () => {
-  const value = useContext(ValueContext);
-
-  return <P.Square>TEST {value.test}</P.Square>;
+  return <P.Square>TEST</P.Square>;
 };
 
 export default Square;
