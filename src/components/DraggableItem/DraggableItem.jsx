@@ -23,7 +23,7 @@ const DraggableItem = ({
 
     if (isDrag) {
       setPosition(e.clientX - left - 12.5);
-      setValue(Math.floor(position / step + 1));
+      setValue(Math.floor(position / step + min));
     }
     if (e.clientX < left) setPosition(0);
     if (e.clientX > right) setPosition(right - left - 50);
