@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import PropertySlider from '../PropertySlider/PropertySlider';
 import BoxShadowContext from '../../contexts/boxShadowContext';
 import * as P from './parts';
@@ -15,7 +15,17 @@ const UserPanel = () => {
     setOpacity,
     spread,
     setSpread,
+    currentColor,
+    setCurrentColor,
   } = useContext(BoxShadowContext);
+
+  // const [currentColor, setCurrentColor] = useState('black');
+
+  const pickColor = (e) => {
+    console.log(currentColor);
+    setCurrentColor(e.target.value);
+    console.log(currentColor);
+  };
 
   return (
     <P.Panel>
@@ -47,13 +57,18 @@ const UserPanel = () => {
         min={0}
         max={100}
       />
-      <PropertySlider
+      {/* <PropertySlider
         value={opacity}
         setValue={setOpacity}
         name='opacity'
         min={0}
         max={1}
+      /> */}
+      <input
+        type='text'
+        value={`box-shadow: ${offsetX}px ${offsetY}px ${spread}px ${blur}px ${currentColor}`}
       />
+      <input type='color' value={currentColor} onChange={pickColor} />
     </P.Panel>
   );
 };

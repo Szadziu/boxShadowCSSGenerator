@@ -8,6 +8,5 @@ export const Square = styled.div`
   height: 300px;
   box-shadow: ${({ value }) => value.offsetX}px
     ${({ value }) => value.offsetY}px ${({ value }) => value.spread}px
-    ${({ value }) => value.blur}px
-    rgba(0, 0, 0, ${({ value }) => value.opacity});
+    ${({ value }) => value.blur}px ${({ value }) => value.currentColor};
 `;

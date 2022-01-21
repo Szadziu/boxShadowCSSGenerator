@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
 const BoxShadowContext = createContext();
 
@@ -8,6 +8,7 @@ export const BoxShadowContextProvider = ({ children }) => {
   const [spread, setSpread] = useState(0);
   const [blur, setBlur] = useState(0);
   const [opacity, setOpacity] = useState(0);
+  const [currentColor, setCurrentColor] = useState('black');
   console.log(offsetX);
   return (
     <BoxShadowContext.Provider
@@ -22,6 +23,8 @@ export const BoxShadowContextProvider = ({ children }) => {
         setBlur,
         opacity,
         setOpacity,
+        currentColor,
+        setCurrentColor,
       }}
     >
       {children}
