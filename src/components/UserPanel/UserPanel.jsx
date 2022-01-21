@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import PropertySlider from "../PropertySlider/PropertySlider";
-import BoxShadowContext from "../../contexts/boxShadowContext";
-import * as P from "./parts";
+import { useContext } from 'react';
+import PropertySlider from '../PropertySlider/PropertySlider';
+import BoxShadowContext from '../../contexts/boxShadowContext';
+import * as P from './parts';
 
 const UserPanel = () => {
   const {
@@ -22,37 +22,37 @@ const UserPanel = () => {
       <PropertySlider
         value={offsetX}
         setValue={setOffsetX}
-        name="offset x"
-        min="0"
-        max="10"
+        name='offset x'
+        min={10}
+        max={100}
       />
       <PropertySlider
         value={offsetY}
         setValue={setOffsetY}
-        name="offset y"
-        min="0"
-        max="10"
+        name='offset y'
+        min={0}
+        max={100}
       />
       <PropertySlider
         value={spread}
         setValue={setSpread}
-        name="spread"
-        min="0"
-        max="5"
+        name='spread'
+        min={0}
+        max={100}
       />
       <PropertySlider
         value={blur}
         setValue={setBlur}
-        name="blur"
-        min="0"
-        max="5"
+        name='blur'
+        min={0}
+        max={100}
       />
       <PropertySlider
         value={opacity}
         setValue={setOpacity}
-        name="opacity"
-        min="0"
-        max="1"
+        name='opacity'
+        min={0}
+        max={1}
       />
     </P.Panel>
   );

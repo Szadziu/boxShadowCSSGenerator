@@ -1,20 +1,46 @@
-import { useState, useRef } from "react";
-import DraggableItem from "../DraggableItem/DraggableItem";
+import { useState, useRef, useEffect } from 'react';
+import DraggableItem from '../DraggableItem/DraggableItem';
 
-import * as P from "./parts";
+import * as P from './parts';
 
 //! extract to global variables if its used in any other place
 const DRAGGABLE_WIDTH = 50;
 
-const PropertySlider = ({ name, min, max, value, setValue }) => {
+const PropertySlider = ({
+  name,
+  min,
+  max,
+  onChange = () => {},
+  value,
+  setValue,
+}) => {
   const sliderRef = useRef(null);
+  // const [currentValue, setCurrentValue] = useState(min);
   const [position, setPosition] = useState(0);
 
   const setChoosenPosition = (e) => {
-    const { left, right } = sliderRef.current.getBoundingClientRect();
-    setPosition(e.clientX - left - DRAGGABLE_WIDTH / 2);
-    // setValue(Math.floor(position / (right - left / max)));
+    const { left, width } = sliderRef.current.getBoundingClientRect();
+
+    const mouseX = e.clientX - left - DRAGGABLE_WIDTH / 2;
+    const pixelsPerValue = width / (max - min + min);
+    const newValue = Math.floor(mouseX / pixelsPerValue);
+
+    setPosition(mouseX);
+
+    //! do zapisania !!!
+    // min - 0 max - 100
+    // width 1000 cały slider
+    // mouseX - 700 / 10
+    // width / ((max - min) + min)
+    // mouseX / (width / ((max - min) + min))
+
+    // setValue(Math.floor((mouseX / max) * value));
+    setValue(newValue);
   };
+
+  useEffect(() => {
+    onChange(value);
+  }, [value]);
 
   return (
     <>
@@ -22,11 +48,9 @@ const PropertySlider = ({ name, min, max, value, setValue }) => {
         <P.PropertyName>{name}</P.PropertyName>
         <P.Slider ref={sliderRef} onClick={setChoosenPosition}>
           <DraggableItem
-            slider={sliderRef}
             min={min}
             max={max}
             setPosition={setPosition}
-            position={position}
             setValue={setValue}
             value={value}
           />
