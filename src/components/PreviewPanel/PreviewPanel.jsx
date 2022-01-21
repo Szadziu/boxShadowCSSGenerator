@@ -1,13 +1,13 @@
-import React from "react";
-import Square from "../Square";
-import * as P from "./parts";
+import React from 'react';
+import TestBox from '../TestBox';
+import { Panel } from '../UserPanel/parts';
 
 class PreviewPanel extends React.Component {
   render() {
     return (
-      <P.Panel>
-        <Square />
-      </P.Panel>
+      <Panel>
+        <TestBox />
+      </Panel>
     );
   }
 }

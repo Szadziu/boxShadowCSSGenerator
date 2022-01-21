@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
-export const Square = styled.div`
-  background-color: lightgray;
+export const Box = styled.div`
+  background-color: #5dcb73;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
+  align-self: center;
   width: 300px;
   height: 300px;
   box-shadow: ${({ value }) => value.offsetX}px
