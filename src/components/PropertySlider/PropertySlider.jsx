@@ -1,9 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import DraggableItem from '../DraggableItem/DraggableItem';
-
 import * as P from './parts';
 
-//! extract to global variables if its used in any other place
 const DRAGGABLE_WIDTH = 50;
 
 const PropertySlider = ({
@@ -15,7 +13,6 @@ const PropertySlider = ({
   setValue,
 }) => {
   const sliderRef = useRef(null);
-  // const [currentValue, setCurrentValue] = useState(min);
   const [position, setPosition] = useState(0);
 
   const setChoosenPosition = (e) => {
@@ -26,15 +23,6 @@ const PropertySlider = ({
     const newValue = Math.floor(mouseX / pixelsPerValue);
 
     setPosition(mouseX);
-
-    //! do zapisania !!!
-    // min - 0 max - 100
-    // width 1000 cały slider
-    // mouseX - 700 / 10
-    // width / ((max - min) + min)
-    // mouseX / (width / ((max - min) + min))
-
-    // setValue(Math.floor((mouseX / max) * value));
     setValue(newValue);
   };
 
@@ -50,6 +38,7 @@ const PropertySlider = ({
           <DraggableItem
             min={min}
             max={max}
+            position={position}
             setPosition={setPosition}
             setValue={setValue}
             value={value}

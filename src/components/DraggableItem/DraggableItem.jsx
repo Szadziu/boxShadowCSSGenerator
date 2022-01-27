@@ -3,8 +3,14 @@ import * as P from './parts';
 
 const DRAGGABLE_ITEM_WIDTH = 50;
 
-const DraggableItem = ({ min, max, setValue, value }) => {
-  const [position, setPosition] = useState(0);
+const DraggableItem = ({
+  min,
+  max,
+  setValue,
+  value,
+  setPosition,
+  position,
+}) => {
   const [parentElement, setParentElement] = useState(null);
   const testRef = useRef();
 
@@ -16,7 +22,6 @@ const DraggableItem = ({ min, max, setValue, value }) => {
   const moveItem = (e) => {
     const { width, left } = parentElement.getBoundingClientRect();
 
-    // if x > width -> stop
     let newPosition = e.clientX - left - DRAGGABLE_ITEM_WIDTH / 2;
 
     if (newPosition < 0) newPosition = 0;

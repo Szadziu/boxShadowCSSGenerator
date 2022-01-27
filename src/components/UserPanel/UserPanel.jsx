@@ -34,8 +34,6 @@ const UserPanel = () => {
 
     setIsTextCopied(true);
     setTimeout(() => setIsTextCopied(false), 2000);
-
-    // console.log(inputElement.select());
   };
 
   return (

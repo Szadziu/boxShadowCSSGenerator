@@ -1,10 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   height: 15%;
   margin: 5px 20px;
 `;
@@ -19,5 +18,6 @@ export const Slider = styled.div`
   width: 60%;
   height: 30px;
   border-radius: 20px;
-  background-color: cadetblue;
+
+  background-color: ${({ theme }) => theme.black};
 `;

@@ -1,7 +1,6 @@
-import * as P from './parts';
 import { useContext } from 'react';
-import { ValueContext } from '../PropertySlider/PropertySlider';
 import boxShadowContext from '../../contexts/boxShadowContext';
+import * as P from './parts';
 
 const TestBox = () => {
   const value = useContext(boxShadowContext);

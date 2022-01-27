@@ -7,5 +7,5 @@ export const Panel = styled.div`
 
   width: 40%;
   height: 30%;
-  background-color: ${({ theme }) => theme.blue};
+  /* background-color: ${({ theme }) => theme.blue}; */
 `;

@@ -1,15 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Item = styled.button`
   position: absolute;
   top: -50%;
-  left: ${({ position }) => position + "px"};
+  left: ${({ position }) => position + 'px'};
 
   width: 50px;
   height: 60px;
-  background-color: rosybrown;
+  border: none;
   border-radius: 20px;
+  box-shadow: 0 0 5px 2px ${({ theme }) => theme.violet};
 
-  color: white;
+  background-color: ${({ theme }) => theme.orange};
+  color: ${({ theme }) => theme.black};
+
   cursor: grab;
 `;
