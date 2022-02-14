@@ -11,5 +11,5 @@ export const Box = styled.div`
     ${({ value }) => value.offsetY}px ${({ value }) => value.spread}px
     ${({ value }) => value.blur}px ${({ value }) => value.currentColor};
 
-  background-color: ${({ theme }) => theme.violet};
+  background-color: ${({ theme }) => theme.beige};
 `;

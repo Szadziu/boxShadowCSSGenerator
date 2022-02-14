@@ -15,34 +15,31 @@ const DraggableItem = ({
   const testRef = useRef();
 
   useEffect(() => {
-    console.log(testRef);
     setParentElement(testRef.current.parentElement);
   }, []);
 
   const moveItem = (e) => {
     const { width, left } = parentElement.getBoundingClientRect();
 
-    let newPosition = e.clientX - left - DRAGGABLE_ITEM_WIDTH / 2;
+    let newPosition = e.clientX - left;
 
     if (newPosition < 0) newPosition = 0;
     else if (newPosition > width) newPosition = width;
 
-    const mouseX = e.clientX - left - DRAGGABLE_ITEM_WIDTH / 2;
-
-    if (mouseX < 0) {
+    if (newPosition < 0) {
       setValue(min);
       return;
     }
-    if (mouseX > width) {
+    if (newPosition > width) {
       setValue(max);
       return;
     }
 
-    const pixelsPerValue = width / (max - min + min);
-    const newValue = Math.round(mouseX / pixelsPerValue);
+    const step = width / (max - min);
+    const newValue = Math.floor(newPosition / step + min);
 
     setValue(newValue);
-    setPosition(newPosition);
+    setPosition(newPosition - DRAGGABLE_ITEM_WIDTH / 2);
   };
 
   const startDrag = (e) => {

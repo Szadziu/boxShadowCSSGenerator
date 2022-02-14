@@ -5,4 +5,5 @@ export const theme = {
   green: '#4FDB52',
   orange: '#DB6C12',
   violet: '#8975DB',
+  beige: 'rgb(220,220,200)',
 };

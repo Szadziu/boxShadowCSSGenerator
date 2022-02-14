@@ -42,14 +42,14 @@ const UserPanel = () => {
         value={offsetX}
         setValue={setOffsetX}
         name='offset x'
-        min={10}
+        min={-100}
         max={100}
       />
       <PropertySlider
         value={offsetY}
         setValue={setOffsetY}
         name='offset y'
-        min={0}
+        min={-100}
         max={100}
       />
       <PropertySlider
@@ -57,14 +57,14 @@ const UserPanel = () => {
         setValue={setSpread}
         name='spread'
         min={0}
-        max={100}
+        max={50}
       />
       <PropertySlider
         value={blur}
         setValue={setBlur}
         name='blur'
         min={0}
-        max={100}
+        max={50}
       />
       <P.TextPicker
         ref={textInputRef}

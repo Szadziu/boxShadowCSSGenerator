@@ -13,18 +13,42 @@ const PropertySlider = ({
   setValue,
 }) => {
   const sliderRef = useRef(null);
-  const [position, setPosition] = useState(0);
+  const [position, setPosition] = useState(value);
 
   const setChoosenPosition = (e) => {
     const { left, width } = sliderRef.current.getBoundingClientRect();
 
-    const mouseX = e.clientX - left - DRAGGABLE_WIDTH / 2;
-    const pixelsPerValue = width / (max - min + min);
-    const newValue = Math.floor(mouseX / pixelsPerValue);
+    if (e.clientX < left || e.clientX > left + width) return;
 
-    setPosition(mouseX);
-    setValue(newValue);
+    const mouseX = e.clientX - left;
+    const step = width / (max - min);
+    const newValue = mouseX / step + min;
+
+    setPosition(mouseX - DRAGGABLE_WIDTH / 2);
+    setValue(Math[newValue > 0 ? 'ceil' : 'floor'](newValue));
   };
+
+  const setStartPosition = () => {
+    const { width } = sliderRef.current.getBoundingClientRect();
+    const step = width / (max - min);
+    setValue(value);
+
+    let newPosition;
+
+    if (value === 0 && min < 0) {
+      newPosition = width / 2;
+    } else if (value < 0) {
+      newPosition = width / 2 - step * Math.abs(value);
+    } else {
+      newPosition = step * value;
+    }
+
+    setPosition(newPosition - DRAGGABLE_WIDTH / 2);
+  };
+
+  useEffect(() => {
+    setStartPosition();
+  }, []);
 
   useEffect(() => {
     onChange(value);
@@ -40,6 +64,7 @@ const PropertySlider = ({
             max={max}
             position={position}
             setPosition={setPosition}
+            setChoosenPosition={setChoosenPosition}
             setValue={setValue}
             value={value}
           />
