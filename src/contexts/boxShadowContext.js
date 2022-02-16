@@ -7,7 +7,7 @@ export const BoxShadowContextProvider = ({ children }) => {
   const [offsetY, setOffsetY] = useState(0);
   const [spread, setSpread] = useState(0);
   const [blur, setBlur] = useState(0);
-  const [currentColor, setCurrentColor] = useState('black');
+  const [currentColor, setCurrentColor] = useState('#000000');
   return (
     <BoxShadowContext.Provider
       value={{

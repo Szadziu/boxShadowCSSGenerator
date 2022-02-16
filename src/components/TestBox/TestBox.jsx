@@ -1,10 +1,6 @@
-import { useContext } from 'react';
-import boxShadowContext from '../../contexts/boxShadowContext';
 import * as P from './parts';
 
-const TestBox = () => {
-  const value = useContext(boxShadowContext);
-
+const TestBox = ({ value }) => {
   return <P.Box value={value} />;
 };
 

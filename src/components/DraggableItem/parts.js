@@ -8,6 +8,9 @@ export const Item = styled.button.attrs(({ position }) => ({
   position: absolute;
   top: -50%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 60px;
   border: none;
@@ -17,7 +20,12 @@ export const Item = styled.button.attrs(({ position }) => ({
   background-color: ${({ theme }) => theme.orange};
   color: ${({ theme }) => theme.white};
 
+  font-size: 1rem
   font-weight: 700;
 
   cursor: grab;
+
+  @media(min-width: 1920px) {
+    font-size: 1.2rem
+  }
 `;

@@ -70,6 +70,7 @@ const UserPanel = () => {
         ref={textInputRef}
         type='text'
         value={`box-shadow: ${offsetX}px ${offsetY}px ${spread}px ${blur}px ${currentColor}`}
+        readOnly
         spellCheck={false}
       />
       <P.CopyButton onClick={copyBoxShadowProperty}>

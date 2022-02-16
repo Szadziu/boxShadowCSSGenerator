@@ -1,15 +1,16 @@
-import React from 'react';
+import { useContext } from 'react';
 import TestBox from '../TestBox';
-import { Panel } from '../UserPanel/parts';
 
-class PreviewPanel extends React.Component {
-  render() {
-    return (
-      <Panel>
-        <TestBox />
-      </Panel>
-    );
-  }
-}
+import boxShadowContext from '../../contexts/boxShadowContext';
+import * as P from './parts';
+
+const PreviewPanel = () => {
+  const value = useContext(boxShadowContext);
+  return (
+    <P.Panel>
+      <TestBox value={value} />
+    </P.Panel>
+  );
+};
 
 export default PreviewPanel;
