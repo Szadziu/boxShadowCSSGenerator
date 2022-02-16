@@ -1,15 +1,14 @@
 import { useContext } from 'react';
+import Panel from '../generics/Panel';
 import TestBox from '../TestBox';
-
 import boxShadowContext from '../../contexts/boxShadowContext';
-import * as P from './parts';
 
 const PreviewPanel = () => {
   const value = useContext(boxShadowContext);
   return (
-    <P.Panel>
+    <Panel>
       <TestBox value={value} />
-    </P.Panel>
+    </Panel>
   );
 };
 

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import DraggableItem from '../DraggableItem/DraggableItem';
+import DraggableItem from '../../DraggableItem';
 import * as P from './parts';
 
 const DRAGGABLE_WIDTH = 50;
@@ -65,6 +65,7 @@ const PropertySlider = ({
             position={position}
             setPosition={setPosition}
             setChoosenPosition={setChoosenPosition}
+            setStartPosition={setStartPosition}
             setValue={setValue}
             value={value}
           />

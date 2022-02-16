@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import * as P from './parts';
+// import useWindowDimensions from '../hooks/useWindowDimensions';
 
 const DRAGGABLE_ITEM_WIDTH = 50;
 
@@ -10,9 +11,15 @@ const DraggableItem = ({
   value,
   setPosition,
   position,
+  setStartPosition,
 }) => {
   const [parentElement, setParentElement] = useState(null);
   const testRef = useRef();
+  // const { width, height } = useWindowDimensions();
+
+  // useEffect(() => {
+  //   setStartPosition();
+  // }, [width, height]);
 
   useEffect(() => {
     setParentElement(testRef.current.parentElement);

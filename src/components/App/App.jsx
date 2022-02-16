@@ -1,10 +1,9 @@
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../styles/GlobalStyle';
+import Title from '../generics/Title';
 import PreviewPanel from '../PreviewPanel';
-import Title from '../Title';
 import UserPanel from '../UserPanel';
 import Wrapper from '../Wrapper';
-
 import { BoxShadowContextProvider } from '../../contexts/boxShadowContext';
 import { title } from '../../constants/constants';
 import { theme } from '../../theme/theme';

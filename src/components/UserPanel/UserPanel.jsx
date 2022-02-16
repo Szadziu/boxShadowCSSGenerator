@@ -1,5 +1,6 @@
 import { useContext, useRef, useState } from 'react';
-import PropertySlider from '../PropertySlider/PropertySlider';
+import Panel from '../generics/Panel';
+import PropertySlider from '../generics/PropertySlider';
 import BoxShadowContext from '../../contexts/boxShadowContext';
 import * as P from './parts';
 
@@ -37,7 +38,7 @@ const UserPanel = () => {
   };
 
   return (
-    <P.Panel>
+    <Panel>
       <PropertySlider
         value={offsetX}
         setValue={setOffsetX}
@@ -78,7 +79,7 @@ const UserPanel = () => {
         {isTextCopied && <P.CopyInfo>copied!</P.CopyInfo>}
       </P.CopyButton>
       <P.ColorPicker type='color' value={currentColor} onChange={pickColor} />
-    </P.Panel>
+    </Panel>
   );
 };
 
