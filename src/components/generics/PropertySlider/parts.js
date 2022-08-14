@@ -1,28 +1,29 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 15%;
-  margin: 5px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-height: 70px;
+    margin: ${({ theme }) => theme.margin.s} ${({ theme }) => theme.margin.xxl};
 `;
 
 export const PropertyName = styled.h2`
-  font-size: 2rem;
-  text-transform: uppercase;
+    font-size: ${({ theme }) => theme.fontSize.xl};
+    text-transform: uppercase;
 
-  @media (min-width: 3840px) {
-    font-size: 5rem;
-  }
+    @media (min-width: 1280px) {
+        font-size: ${({ theme }) => theme.fontSize.xxl};
+    }
 `;
 
 export const Slider = styled.div`
-  position: relative;
+    position: relative;
 
-  width: 50%;
-  height: 30px;
-  border-radius: 20px;
+    width: 50%;
+    height: 20px;
+    border-radius: ${({ theme }) => theme.borderRadius.s};
 
-  background-color: ${({ theme }) => theme.black};
+    background-color: ${({ theme }) => theme.colors.accent_2};
 `;

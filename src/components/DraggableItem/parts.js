@@ -1,31 +1,30 @@
 import styled from 'styled-components';
 
 export const Item = styled.button.attrs(({ position }) => ({
-  style: {
-    left: position,
-  },
+    style: {
+        left: position,
+    },
 }))`
-  position: absolute;
-  top: -50%;
+    position: absolute;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 60px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 2px ${({ theme }) => theme.black};
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  background-color: ${({ theme }) => theme.orange};
-  color: ${({ theme }) => theme.white};
+    width: 40px;
+    height: 20px;
+    border: none;
+    box-shadow: 0 0 1px 1px ${({ theme }) => theme.colors.white};
 
-  font-size: 1rem
-  font-weight: 700;
+    background-color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.white};
 
-  cursor: grab;
+    font-size: ${({ theme }) => theme.fontSize.xs};
+    font-weight: 700;
 
-  @media(min-width: 1920px) {
-    font-size: 1.2rem
-  }
+    cursor: grab;
+
+    @media (min-width: 1280px) {
+        font-size: ${({ theme }) => theme.fontSize.m};
+    }
 `;
