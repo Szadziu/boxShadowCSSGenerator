@@ -9,10 +9,6 @@ The application is used to create a shadow on the test element using sliders wit
 * react ver. 17.0.2
 * styled components ver. 5.3.3
 
-- styled components
-- react hooks
-- context
-
 In react an approach to functional components is used.
 
 ## Launch
@@ -21,8 +17,7 @@ https://szadziu.github.io/boxShadowCSSGenerator/
 
 ## Illustrations
 
-![image](https://user-images.githubusercontent.com/73105872/153951580-57316fe9-6a9e-411b-a105-66ffde637cd6.png)
-
+<img width="1209" alt="image" src="https://user-images.githubusercontent.com/73105872/184538049-c0baa89a-708f-4be1-a892-9f24f994ea48.png">
 
 ## Scope of functionalities
 
